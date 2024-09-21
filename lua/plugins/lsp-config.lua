@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "csharp_ls", "omnisharp"}
+                ensure_installed = { "lua_ls", "csharp_ls", "omnisharp", "powershell_es"}
             })
         end
     },
@@ -23,7 +23,9 @@ return {
                 cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
             })
             lspconfig.lua_ls.setup({})
-
+            lspconfig.powershell_es.setup({
+                bundle_path = 'C:\\PowerShellEditorServices',
+            })
         end
     }
 }

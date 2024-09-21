@@ -52,6 +52,18 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Move line down'")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Move line up'")
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
+-- Move deleted text to the black hole register
+local opts = { noremap = true, silent = true }
+
+vim.api.nvim_set_keymap('n', 'd', '"_d', opts)
+vim.api.nvim_set_keymap('v', 'd', '"_d', opts)
+vim.api.nvim_set_keymap('n', 'x', '"_x', opts)
+vim.api.nvim_set_keymap('v', 'x', '"_x', opts)
+vim.api.nvim_set_keymap('n', 'c', '"_c', opts)
+vim.api.nvim_set_keymap('v', 'c', '"_c', opts)
+vim.api.nvim_set_keymap('n', 'D', '"_D', opts)
+
+
 -- Setup autocommands
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
