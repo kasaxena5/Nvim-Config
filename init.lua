@@ -41,7 +41,10 @@ vim.opt.softtabstop = 4
 vim.opt.cursorline = true
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.mouse = 'a'
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
+vim.opt.foldmethod = 'syntax'
 -- Setup the lua plugins
 require("lazy").setup("plugins")
 
@@ -50,6 +53,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear search highlights
 vim.keymap.set("n", "Ctrl-[", "<Esc>") -- Map Ctrl-[ to escape
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Move line down'")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Move line up'")
+vim.keymap.set("n", "<C-b>", "<C-v>")  -- Map visual block mode ctrl + B 
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 -- Move deleted text to the black hole register
