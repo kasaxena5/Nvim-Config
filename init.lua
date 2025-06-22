@@ -53,8 +53,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear search highlights
 vim.keymap.set("n", "Ctrl-[", "<Esc>") -- Map Ctrl-[ to escape
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Move line down'")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Move line up'")
-vim.keymap.set("n", "<C-b>", "<C-v>")  -- Map visual block mode ctrl + B 
-vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<C-b>", "<C-v>")  -- Map visual block mode Ctrl + B 
+vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = "Toggle file tree", noremap = true, silent = true })
 
 -- Move deleted text to the black hole register
 local opts = { noremap = true, silent = true }
@@ -66,6 +66,10 @@ vim.api.nvim_set_keymap('v', 'x', '"_x', opts)
 vim.api.nvim_set_keymap('n', 'c', '"_c', opts)
 vim.api.nvim_set_keymap('v', 'c', '"_c', opts)
 vim.api.nvim_set_keymap('n', 'D', '"_D', opts)
+
+vim.api.nvim_set_keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Source current file", noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>x", ":.lua<CR>", { desc = "Run lua for current line", noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader>x", ":lua<CR>", { desc = "Run lua for selected lines", noremap = true, silent = true })
 
 
 -- Setup autocommands
