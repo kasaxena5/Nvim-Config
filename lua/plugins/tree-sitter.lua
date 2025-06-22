@@ -10,3 +10,4 @@ return {
         })
     end
 }
+-- run 'choco install mingw' to install gcc for C/C++ support

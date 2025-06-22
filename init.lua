@@ -19,6 +19,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Set the nvim options
+
+-- Disable netrw, as we will use nvim-tree instead
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.opt.termguicolors = true
 
 vim.opt.number = true
@@ -54,22 +59,21 @@ vim.keymap.set("n", "Ctrl-[", "<Esc>") -- Map Ctrl-[ to escape
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Move line down'")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Move line up'")
 vim.keymap.set("n", "<C-b>", "<C-v>")  -- Map visual block mode Ctrl + B 
-vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = "Toggle file tree", noremap = true, silent = true })
 
 -- Move deleted text to the black hole register
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap('n', 'd', '"_d', opts)
-vim.api.nvim_set_keymap('v', 'd', '"_d', opts)
-vim.api.nvim_set_keymap('n', 'x', '"_x', opts)
-vim.api.nvim_set_keymap('v', 'x', '"_x', opts)
-vim.api.nvim_set_keymap('n', 'c', '"_c', opts)
-vim.api.nvim_set_keymap('v', 'c', '"_c', opts)
-vim.api.nvim_set_keymap('n', 'D', '"_D', opts)
+vim.keymap.set('n', 'd', '"_d', opts)
+vim.keymap.set('v', 'd', '"_d', opts)
+vim.keymap.set('n', 'x', '"_x', opts)
+vim.keymap.set('v', 'x', '"_x', opts)
+vim.keymap.set('n', 'c', '"_c', opts)
+vim.keymap.set('v', 'c', '"_c', opts)
+vim.keymap.set('n', 'D', '"_D', opts)
 
-vim.api.nvim_set_keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Source current file", noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>x", ":.lua<CR>", { desc = "Run lua for current line", noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<leader>x", ":lua<CR>", { desc = "Run lua for selected lines", noremap = true, silent = true })
+vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Source current file", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>x", ":.lua<CR>", { desc = "Run lua for current line", noremap = true, silent = true })
+vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = "Run lua for selected lines", noremap = true, silent = true })
 
 
 -- Setup autocommands

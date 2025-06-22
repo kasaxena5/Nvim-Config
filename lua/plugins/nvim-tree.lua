@@ -5,5 +5,7 @@ return {
     },
     config = function()
         require("nvim-tree").setup {}
+
+        vim.keymap.set('n', '<leader>e', ":NvimTreeFindFileToggle<CR>", { desc = "Toggle file tree", noremap = true, silent = true })
     end,
 }

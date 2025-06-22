@@ -5,7 +5,15 @@ return {
     config = function()
         require("bufferline").setup {
             options = {
-                mode = "tabs"
+                diagnostics = "nvim_lsp",
+                offsets = {
+                    {
+                        filetype = "NvimTree",
+                        text = "File Explorer",
+                        highlight = "Directory",
+                        separator = true
+                    }
+                }
             }
         }
     end,

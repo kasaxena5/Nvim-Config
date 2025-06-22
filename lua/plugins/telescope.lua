@@ -1,6 +1,6 @@
 return {
     "nvim-telescope/telescope.nvim",
-    branch = '0.1.x',
+    tag = '0.1.8',
     dependencies = {
         'nvim-lua/plenary.nvim',
         'BurntSushi/ripgrep' ,
@@ -17,3 +17,4 @@ return {
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = "Help tags"})
     end,
 }
+-- Run 'choco install ripgrep' and 'choco install fd' to install ripgrep and fd on Windows
